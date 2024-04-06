@@ -11,9 +11,10 @@ public class Usuario {
     //listagem dos usuarios
     private static List<Usuario> listaDeUsuario = new ArrayList<>();
 
-    public Usuario(String nome, String email, String telefone, String usuario,
+    public Usuario(String nome, String endereco, String email, String telefone, String usuario,
     String senha, boolean adminUsuario){
         this.nome = nome;
+        this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;
         this.usuario = usuario;
@@ -22,8 +23,9 @@ public class Usuario {
     }
 
 
-    public void criarUsuario(String nome, String endereco, String email, String telefone){
-        Usuario user = new Usuario(nome, email, telefone, email, telefone, adminUsuario);
+    public void criarUsuario(String nome, String endereco, String email, String telefone,
+     String usuario,String senha,boolean adminUsuario){
+        Usuario user = new Usuario(nome, endereco, email, telefone, usuario, senha, adminUsuario);
         listaDeUsuario.add(user);
 
     }
