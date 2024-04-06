@@ -1,9 +1,15 @@
 package projeto;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Usuario {
 
     private String nome, endereco, email, telefone, usuario, senha;
     private boolean adminUsuario;
+
+    //listagem dos usuarios
+    private static List<Usuario> listaDeUsuario = new ArrayList<>();
 
     public Usuario(String nome, String email, String telefone, String usuario,
     String senha, boolean adminUsuario){
@@ -12,32 +18,70 @@ public class Usuario {
         this.telefone = telefone;
         this.usuario = usuario;
         this.senha = senha;
-        this.adminUsuario = false;
+        this.adminUsuario = adminUsuario;
     }
 
 
     public void criarUsuario(String nome, String endereco, String email, String telefone){
+        Usuario user = new Usuario(nome, email, telefone, email, telefone, adminUsuario);
+        listaDeUsuario.add(user);
 
     }
 
 
-    public void editarUsuario(String nome, String endereco, String email, String telefone){
+    public  void editarUsuario(String nome, String endereco, String email, String telefone){
+        for (Usuario user : listaDeUsuario) {
+            if (user.getUsuario().equals(usuario)) {
+                user.setNome(nome);
+                user.setEndereco(endereco);
+                user.setEmail(email);
+                user.setTelefone(telefone);
+                return;
+            }
+        }
+        System.out.println("Nao foi possivel editar usuario.");
 
     }
 
 
-    public void excluirUsuario(){
+    public static void excluirUsuario(String usuario){
+        for(Usuario user: listaDeUsuario){
+            if(user.getUsuario() == usuario){
+                listaDeUsuario.remove(user);
+                System.out.println("Usuario removido com sucesso");
+                return;
+            }
+        }
+        System.out.println("Nao foi possivel remover o usuario");
 
     }
 
 
-    public void visualizarUsuario(){
-
+    public  void visualizarUsuario(){
+        for (Usuario user : listaDeUsuario) {
+            if (user.getUsuario() == usuario) {
+                System.out.println("Nome: " + user.getNome());
+                System.out.println("Endereco: " + user.getEndereco());
+                System.out.println("E-mail: " + user.getEmail());
+                System.out.println("Telefone: " + user.getTelefone());
+                return;
+            }
+        }
+        System.out.println("Não foi possivel visualizar usuario.");
     }
 
-
+    
     public void listarUsuario(){
-
+        for (Usuario user : listaDeUsuario) {
+                System.out.println("Nome: " + user.getNome());
+                System.out.println("Endereco: " + user.getEndereco());
+                System.out.println("E-mail: " + user.getEmail());
+                System.out.println("Telefone: " + user.getTelefone());
+                System.out.println("Senha: " + user.getSenha());
+                System.out.println("Usuario: " + user.getUsuario());
+                System.out.println("Administrador: " + user.getAdminUsuario());
+                System.out.println("");
+        }
     }
 
 
@@ -46,8 +90,8 @@ public class Usuario {
     }
 
     
-    public String setNome(String nome_){
-        return this.nome = nome_;
+    public String setNome(String nome){
+        return this.nome = nome;
     }
 
 
@@ -56,8 +100,8 @@ public class Usuario {
     }
 
 
-    public String setEndereco(String endereco_){
-        return this.endereco = endereco_;
+    public String setEndereco(String endereco){
+        return this.endereco = endereco;
     }
 
 
@@ -66,8 +110,8 @@ public class Usuario {
     }
 
 
-    public String setEmail(String email_){
-        return this.email = email_;
+    public String setEmail(String email){
+        return this.email = email;
     }
 
 
@@ -76,8 +120,8 @@ public class Usuario {
     }
 
 
-    public String setTelefone(String telefone_){
-        return this.telefone = telefone_;
+    public String setTelefone(String telefone){
+        return this.telefone = telefone;
     }
 
 
@@ -86,8 +130,8 @@ public class Usuario {
     }
 
 
-    public String setSenha(String senha_){
-        return this.senha = senha_;
+    public String setSenha(String senha){
+        return this.senha = senha;
     }
 
 
@@ -96,8 +140,8 @@ public class Usuario {
     }
 
 
-    public String setUsuario(String usuario_){
-        return this.usuario = usuario_;
+    public String setUsuario(String usuario){
+        return this.usuario = usuario;
     }
 
 
@@ -106,7 +150,7 @@ public class Usuario {
     }
 
     
-    public boolean setAdminUsuario(boolean adminUsuario_){
-        return this.adminUsuario = adminUsuario_;
+    public boolean setAdminUsuario(boolean adminUsuario){
+        return this.adminUsuario = adminUsuario;
     }
 }
