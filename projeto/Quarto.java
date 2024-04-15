@@ -1,3 +1,6 @@
+package projeto;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -119,7 +122,7 @@ public class Quarto {
         List<Quarto> quartosDisponiveis = new ArrayList<>();
         for (Quarto quarto : listaDeQuartos) {
             // Verificar a disponibilidade do quarto para a data especificada
-            if (quarto.getVerificaData() != null && quarto.getVerificaData().compareTo(verificaData) > 0) {
+            if (quarto.getVerificaData() != null && quarto.getVerificaData().compareTo(verificaData) >= 0) {
                 quartosDisponiveis.add(quarto);
             }
         }
@@ -137,13 +140,16 @@ public class Quarto {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Quarto.cadastrarQuarto(1, "TV, Wi-Fi", 2, 100.0f);
         Quarto.cadastrarQuarto(2, "Ar condicionado, TV, Wi-Fi", 3, 150.0f);
         Quarto.cadastrarQuarto(3, "Ar condicionado, TV, Wi-Fi, Frigobar", 4, 180.0f);
-
+        
+        for (Quarto quarto : listaDeQuartos){ // Subir todos para o arquivo
+            GerenciadorQuarto.criarQuarto(quarto);
+        }
         System.out.println("Listagem de quartos:");
-        Quarto.listarQuartos();
-
+        // Quarto.listarQuartos();
+        GerenciadorQuarto.listarQuartos();
     }
 }
