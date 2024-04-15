@@ -7,7 +7,7 @@ public class UsuarioDemo {
         GerenciadorUsuario gerenciador = new GerenciadorUsuario();
 
         // Criar um novo usuários
-          Usuario novoUsuario = new Usuario("João bosco", "Rua das Flores, 123", "joao@gmail.com", "", "123", "senha123", true);
+          Usuario novoUsuario = new Usuario("João bosco", "Rua das Flores, 123", "joao@gmail.com", "", "joao25", "senha123", true);
 
 
         //     try {
@@ -54,7 +54,7 @@ public class UsuarioDemo {
 
         // Excluir um usuário
         //    try {
-        //        gerenciador.excluirUsuario("123");
+        //        gerenciador.excluirUsuario("joao25");
         //        System.out.println("Usuário excluído com sucesso!");
         //    } catch (IOException e) {
         //        System.out.println("Erro ao excluir usuário: " + e.getMessage());
