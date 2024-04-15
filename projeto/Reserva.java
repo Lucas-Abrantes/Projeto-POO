@@ -10,8 +10,7 @@ public class Reserva{
     boolean validaReserva;
 
     //Construtor
-    public Reserva(Date dataAtual, int id, Date dataInicio, Date dataTermino, Date dataCheckin, Date dataCheckout,
-            boolean validaReserva) {
+    public Reserva(Date dataAtual, int id, Date dataInicio, Date dataTermino, Date dataCheckin, Date dataCheckout, boolean validaReserva) {
         this.dataAtual = dataAtual;
         this.id = id;
         this.dataInicio = dataInicio;
@@ -19,46 +18,6 @@ public class Reserva{
         this.dataCheckin = dataCheckin;
         this.dataCheckout = dataCheckout;
         this.validaReserva = validaReserva;
-    }
-
-    public void realizarReserva(){
-
-    }
-
-    public void confirmaReserva(){
-
-    }
-
-    public void cancelarReserva(){
-
-    }
-
-    public void visualizarReserva(){
-
-    }
-
-    public void listarReservas(){
-
-    }
-
-    public void realizarCheckin(Date dataCheckin){
-
-    }
-
-    public void realizarCheckout(Date datacheckout){
-
-    }
-
-    public void editarReserva(){
-
-    }
-
-    public void calcularCustos(){
-
-    }
-
-    public void excluirReserva(){
-
     }
 
     //Gets e Sets
@@ -126,4 +85,73 @@ public class Reserva{
                 + validaReserva + "]";
     }
     
+    //metodos
+    public void realizarReserva() {
+        if (validaReserva) {
+            System.out.println("A reserva já foi realizada anteriormente.");
+        } else {
+            validaReserva = true;
+            System.out.println("Reserva realizada com sucesso.");
+        }
+    }
+
+    public void confirmaReserva() {
+        if (validaReserva) {
+            System.out.println("A reserva já foi confirmada anteriormente.");
+        } else {
+            validaReserva = true;
+            System.out.println("Reserva confirmada.");
+        }
+    }
+
+    public void cancelarReserva() {
+        if (!validaReserva) {
+            System.out.println("A reserva já foi cancelada anteriormente.");
+        } else {
+            validaReserva = false;
+            System.out.println("Reserva cancelada.");
+        }
+    }
+
+    public void visualizarReserva() {
+        System.out.println("ID da reserva: " + id);
+        System.out.println("Data de início: " + dataInicio);
+        System.out.println("Data de término: " + dataTermino);
+        System.out.println("Data de check-in: " + dataCheckin);
+        System.out.println("Data de check-out: " + dataCheckout);
+        System.out.println("Status da reserva: " + (validaReserva ? "Confirmada" : "Cancelada"));
+    }
+
+    public void listarReservas() {
+        System.out.println("Listando todas as reservas...");
+    }
+
+    public void realizarCheckin(Date dataCheckin) {
+        this.dataCheckin = dataCheckin;
+        System.out.println("Check-in realizado em " + dataCheckin);
+    }
+
+    public void realizarCheckout(Date dataCheckout) {
+        this.dataCheckout = dataCheckout;
+        System.out.println("Check-out realizado em " + dataCheckout);
+    }
+
+    public void editarReserva() {
+        System.out.println("Reserva editada.");
+    }
+
+    public void calcularCustos() {
+        // Implementação para calcular custos
+        System.out.println("Custos calculados.");
+    }
+
+    public void excluirReserva() {
+        System.out.println("Reserva excluída.");
+    }
+
+    public static void main(String[] args) {
+
+        
+    }
+
 }
